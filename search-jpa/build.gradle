@@ -1,0 +1,16 @@
+
+description = 'search-jpa'
+
+dependencies {
+  compile project(':search-core')
+  compile ('org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final')
+  
+  implementation ('org.slf4j:slf4j-api:1.7.25')
+  
+  testCompile ('com.h2database:h2:1.4.197')
+  testCompile ('org.hibernate:hibernate-entitymanager:5.3.6.Final')
+}
+
+test {
+  systemProperty 'logback.configurationFile', 'search-jpa-logback-test.xml'
+}

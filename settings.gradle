@@ -1,0 +1,6 @@
+rootProject.name = 'search-framework'
+include ':search-core'
+include ':search-jpa'
+
+project(':search-core').projectDir = "$rootDir/search-core" as File
+project(':search-jpa').projectDir = "$rootDir/search-jpa" as File

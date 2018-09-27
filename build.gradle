@@ -1,0 +1,39 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+}
+
+allprojects  {
+  apply plugin: 'java'
+  apply plugin: 'maven'
+
+  group = 'org.search.api'
+  version = '0.0.1-SNAPSHOT'
+}
+
+subprojects {
+  
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+
+  tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+  }
+  
+  repositories {
+    jcenter()
+  }
+  
+  dependencies {
+    testCompile('junit:junit:4.12')
+  }
+
+  processResources {
+    filesMatching("**/*.yml") {
+      expand project.properties
+    }
+  }
+}
